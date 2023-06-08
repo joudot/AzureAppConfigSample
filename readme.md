@@ -1,8 +1,10 @@
-The intend of this repository is to test a few features offered by App Config Service:
+# Introduction
+The intend of this repository is to test a few features offered by Azure App Configuration Service:
 - Integrate App Configuration as a configuration provider in a .NET 6 Application
 - Use different Key Vault references to store secrets
-- Use label to differentiate secret for DEV and PROD and demonstrate how different level of access can be configured to prevent developers from seeing production secrets
+- Use labels to differentiate secrets for DEV and PROD and demonstrate how different levels of access can be configured to prevent developers from seeing production secrets
   
+# Sources
 To create this sample, I followed the instructions here: https://learn.microsoft.com/en-us/azure/azure-app-configuration/quickstart-aspnet-core-app?tabs=core6x
 
 Used the read only key as a connection string.
@@ -49,3 +51,15 @@ dotnet build
 
 dotnet run
 ```
+
+Then, you should see you have access to the connection string values.
+
+![](Img/ReadConfAndSecretOK.png)
+
+In **Program.cs** comment the filter on DEV label and uncomment the PROD filter. 
+
+![](Img/UseProdLabel.png)
+
+Build and run again and you should see an error as you don't have access to the production key vault. 
+
+![](Img/ReadProdSecretKO.png)
