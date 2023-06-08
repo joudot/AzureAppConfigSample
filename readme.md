@@ -30,7 +30,7 @@ Then the below list of configurations/secrets can be used for testing:
 
 The two DEV secrets point to Key Vault 1 and Key Vault 2 while both PROD secrets point to Key Vault Prod
 
-I have access to the secrets 1 only in Key Vault 1 (need access at the key vault level to see the secret in the secret list but it is enough to read the secret from the sample App)
+I have access to the secrets 1 only in Key Vault 1 (need access at the key vault level to see the secret in the secrets list but having the authorization at the secret level only is enough to read the secret from the sample App)
 
 ![](Img/Kv1RbacSecret1.png)
 
