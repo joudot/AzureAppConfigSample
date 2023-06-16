@@ -9,6 +9,8 @@ To create this sample, I followed the instructions here: https://learn.microsoft
 
 Instead of using the read only key as a connection string, I used DefaultAzureCredential and added myself as a resource reader to be authorized.
 
+![](Img/AppConfigurationRBAC.png)
+
 Created two key Vaults with RBAC policies and my account as Admin to create two secrets.
 
 Followed App Config <-> Key Vault doc to integrate/initialize the Key Vault authentication here https://learn.microsoft.com/en-us/azure/azure-app-configuration/use-key-vault-references-dotnet-core?tabs=core5x#update-your-code-to-use-a-key-vault-reference
@@ -34,7 +36,7 @@ I have access to the secrets 1 only in Key Vault 1 (need access at the key vault
 
 ![](Img/Kv1RbacSecret1.png)
 
-I have access to the entire key vault 2.
+I have access to all secrets in the key vault 2.
 
 ![](Img/Kv2RbacKv.png)
 
