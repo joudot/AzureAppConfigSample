@@ -18,20 +18,24 @@ var app = builder.Build();
 // Retrieve the connection string
 string connectionString = builder.Configuration.GetConnectionString("AppConfig");
 
+// Will try VS credentials
+var credential = new DefaultAzureCredential();
+ 
 // Load configuration from Azure App Configuration
 builder.Configuration.AddAzureAppConfiguration(options =>
             {
-                options.Connect(connectionString)
+                //options.Connect(connectionString)
+                options.Connect(new Uri(builder.Configuration["AppConfigEndpoint"]), credential)
                         .ConfigureKeyVault(kv =>
                         {
-                            kv.SetCredential(new DefaultAzureCredential());
+                            kv.SetCredential(credential);
                         })
                         // Load configuration values with no label
                         .Select(KeyFilter.Any, LabelFilter.Null)
                         // Override with any configuration values specific to current hosting env
                         .Select(KeyFilter.Any, "DEV");
                         // the below should not work as I am not authorized on prod key vault
-                         //.Select(KeyFilter.Any, "PROD");
+                        //.Select(KeyFilter.Any, "PROD");
             });
 
 // Configure the HTTP request pipeline.
