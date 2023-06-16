@@ -34,7 +34,7 @@ I have access to the secrets 1 only in Key Vault 1 (need access at the key vault
 
 ![](Img/Kv1RbacSecret1.png)
 
-I have access to all secrets in the key vault 2.
+I have access to the entire key vault 2.
 
 ![](Img/Kv2RbacKv.png)
 
