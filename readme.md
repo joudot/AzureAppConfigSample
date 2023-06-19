@@ -7,7 +7,7 @@ The intend of this repository is to test a few features offered by Azure App Con
 # Sources
 To create this sample, I followed the instructions here: https://learn.microsoft.com/en-us/azure/azure-app-configuration/quickstart-aspnet-core-app?tabs=core6x
 
-Instead of using the read only key as a connection string, I used DefaultAzureCredential and added myself as a resource reader to be authorized.
+Instead of using the read only key as a connection string, I used DefaultAzureCredential and added myself as a reader to be authorized to access both the App Config environment and read the configuration.
 
 ![](Img/AppConfigurationRBAC.png)
 
